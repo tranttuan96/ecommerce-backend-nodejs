@@ -2,6 +2,8 @@ import compression from "compression";
 import express, { Express } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import initDatabase from './dbs/init.mongodb';
+import { checkOverload } from '../src/helpers/check.connect'
 
 const app: Express = express();
 
@@ -11,10 +13,12 @@ app.use(
     "[:date[iso]] :remote-addr HTTP/:http-version :method :url HTTP-Code: :status Size: :res[content-length] bytes - Response-time: :response-time ms"
   )
 );
-app.use(helmet())
-app.use(compression())
+app.use(helmet());
+app.use(compression());
 
 // init db
+initDatabase();
+checkOverload();
 
 // init routes
 app.get("/", (req, res, next) => {
