@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import { countConnect } from "../helpers/check.connect";
+import configuration from '../config/configuration';
 
-const connectUri =
-  process.env.MONGO_URI || "mongodb://localhost:27017/ecommerce";
+const connectUri = configuration.mongodb.uri || "mongodb://localhost:27017/ecommerce";
 
 class Database {
   private static instance: Database;
