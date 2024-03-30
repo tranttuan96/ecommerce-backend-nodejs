@@ -1,5 +1,5 @@
-import app from "./app";
-import configuration from './config/configuration';
+import app from "@Src/app";
+import configuration from "@Config/configuration";
 
 const port = configuration.app.port || 4000;
 

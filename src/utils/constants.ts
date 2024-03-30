@@ -1,4 +1,4 @@
 export enum ENVIRONMENTS {
-    DEV = 'development',
-    PROD = 'production',
+  DEV = "development",
+  PROD = "production",
 }
